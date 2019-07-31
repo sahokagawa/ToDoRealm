@@ -11,6 +11,8 @@ import RealmSwift
 
 //必ず、objectを継承させる
 class Todo: Object {
+//    tudoっていうシートの中に、idとかtitleとかdateっていう列がある
+    
 //    ID（連番）
     @objc dynamic var id: Int = 0
 //    タイトル

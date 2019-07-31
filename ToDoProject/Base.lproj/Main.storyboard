@@ -84,15 +84,21 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="登録"/>
+                                <connections>
+                                    <action selector="didClickButton:" destination="lOh-vy-dp6" eventType="touchUpInside" id="h2R-4C-Imt"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="toe-4e-fBe"/>
                     </view>
+                    <connections>
+                        <outlet property="textField" destination="LWO-63-0Oe" id="jy2-SW-g8r"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TYd-nb-0X6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1817.3913043478262" y="93.75"/>
+            <point key="canvasLocation" x="2043" y="94"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WbH-S8-xum">
