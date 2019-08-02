@@ -14,6 +14,10 @@ class InputViewController: UIViewController {
 //   ① つなげる
     @IBOutlet weak var textField: UITextField!
     
+    
+//新規追加の時と、編集の時でボタンの表示変えたい    まずはアウトレットでつなげる
+    @IBOutlet weak var button: UIButton!
+    
 //    前の画面から渡されてきたtodoを受け取る変数
     var todo: Todo? = nil
     
@@ -21,6 +25,20 @@ class InputViewController: UIViewController {
         super.viewDidLoad()
 
     }
+    
+    
+//新規追加の時と、編集の時でボタンの表示変えたい
+    override func viewDidAppear(_ animated: Bool) {
+        if todo == nil{
+            button.setTitle("追加", for: .normal)
+        }else{
+            button.setTitle("更新", for: .normal)
+            textField.text = todo?.title
+        }
+        
+    }
+    
+    
     
 // 選択　二本指　リファクター　methodで長くなったメソッドを見やすく！
     fileprivate func createTodofunc(_ text: String) {
@@ -38,12 +56,20 @@ class InputViewController: UIViewController {
         todo.title = text
         todo.date = Date()
         
-        //       ④ 作成したTODOを登録する
+        // ④ 作成したTODOを登録する　　　もう構文！
         try! realm.write {
             realm.add(todo)
         }
     }
     
+    
+    fileprivate func updateTodo(_ text: String) {
+        //更新
+        let realm = try! Realm()
+        try! realm.write {
+            todo?.title = text
+        }
+    }
     
     @IBAction func didClickButton(_ sender: UIButton) {
 //②登録する前に、空文字かどうかをチェックする
@@ -61,7 +87,7 @@ class InputViewController: UIViewController {
 //        }
         
 //上のコメントアウトのやり方でも、{}がいっぱいになってわかりにくい
-//②そこでさらに、違う書き方あるよ！   guard let構文
+//②そこでさらに、違う書き方あるよ！   guard let構文 if let構文と逆
         guard let text = textField.text else{
 //                textField.textがnilの場合、ボタンがクリックされた時の処理を中断する
 //                if let と逆で、nilfあった場合に実行される
@@ -76,8 +102,15 @@ class InputViewController: UIViewController {
        
         
         
-//        新規タスクを追加
-        createTodofunc(text)
+        if todo == nil{
+            // nilでも空文字でもない時に　createTodofunc(text)実行される
+            // 新規タスクを追加
+            createTodofunc(text)
+        }else{
+            updateTodo(text)
+            
+        }
+
         
 //        前の画面に戻る
 //        navigationControllerの持っている履歴から一つ前の画面に戻る

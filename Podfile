@@ -6,6 +6,6 @@ target 'ToDoProject' do
   use_frameworks!
 
   # Pods for ToDoProject
- pod 'RealmSwift'
+  pod 'RealmSwift'
 
 end

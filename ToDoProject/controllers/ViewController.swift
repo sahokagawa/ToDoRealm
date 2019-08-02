@@ -24,6 +24,7 @@ class ViewController: UIViewController {
         let realm = try! Realm()
         //todoの一覧を取得する
         todos = realm.objects(Todo.self).reversed()
+        //テーブルを更新
         tableView.reloadData()
     }
     
@@ -37,7 +38,7 @@ class ViewController: UIViewController {
     }
     
     
-//    画面が表示されるたびに実行  viewDidLoad()とは違って！
+//    viewWillAppearは画面が表示されるたびに実行  viewDidLoad()とは違って！
 //    表示されるたびに、最新のデータとって表示してほしい
     override func viewWillAppear(_ animated: Bool) {
        reloadTableView()
@@ -61,11 +62,11 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let todo = todos[indexPath.row]
         cell.textLabel?.text = todo.title
+//        titleを取り出して、セルのラベルに表示
         
 //編集したい
 //        セルに矢印をつける
-        cell .accessoryType = .disclosureIndicator
-    
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
 //編集したい

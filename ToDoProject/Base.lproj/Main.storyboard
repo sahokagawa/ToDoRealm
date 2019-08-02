@@ -68,7 +68,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LWO-63-0Oe">
-                                <rect key="frame" x="54" y="394" width="303" height="59"/>
+                                <rect key="frame" x="54" y="263" width="303" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="textColor"/>
@@ -80,10 +80,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n88-J9-lOu">
-                                <rect key="frame" x="154" y="510" width="102" height="68"/>
+                                <rect key="frame" x="154" y="351" width="102" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="登録"/>
+                                <state key="normal" title="追加"/>
                                 <connections>
                                     <action selector="didClickButton:" destination="lOh-vy-dp6" eventType="touchUpInside" id="h2R-4C-Imt"/>
                                 </connections>
@@ -93,6 +93,7 @@
                         <viewLayoutGuide key="safeArea" id="toe-4e-fBe"/>
                     </view>
                     <connections>
+                        <outlet property="button" destination="n88-J9-lOu" id="5Rr-B6-Dg4"/>
                         <outlet property="textField" destination="LWO-63-0Oe" id="jy2-SW-g8r"/>
                     </connections>
                 </viewController>
